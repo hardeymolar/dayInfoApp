@@ -3,14 +3,14 @@ const express = require("express");
 const app = express();
 
 
-app.get('/info', (req, res) => {
+app.get('/api', (req, res) => {
     const slackName = req.query.slack_name;
     const track = req.query.track;
 
     // Get the current day
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
     // Generate UTC time in ISO format
-    const utcTime = new Date().toISOString();
+   const utcTime = new Date().toISOString().slice(0,19) + 'Z';
 
     // Define github repo,file url and statuscode
     const githubRepoUrl = 'https://github.com/hardeymolar/dayInfoApp';
